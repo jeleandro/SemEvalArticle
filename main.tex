@@ -45,6 +45,8 @@
 	
 	O termo {\it Fake News} tornou-se amplamente conhecido após as eleições americanas de 2016 devido a alegações feitas pelo então candidato Donald Trump. Uma das principais alegações é de que diversos meios de comunicação publicam notícias tendenciosas, e algumas vezes falsas, de modo a atrair um número maior de visualizações e consequentemente mais rentabilidade para suas propagandas. Uma característica compartilhada por essas publicações é o nível de polarização política.
 	
+	A detecção de tendência ideológica é uma tarefa difícil mesmo para humanos \cite{Fallis2013}
+	
 	
 	
 	
@@ -56,20 +58,23 @@
 	\label{sec.related}
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	o trabalho em \cite{Preotiuc-Pietro2017} estudou o engajamento político considerando classificando os textos em graus que variavam entre extrema esquerda até extrema direita. Foram coletados dados de usuários do twitter que receberam três dólares pela pesquisa. Estes usuários preencheram um questionário de mapeamento e traços psicológicos e sociais, informaram suas preferencias políticas e forneceram 3200 tweets cada. Além desses, foram extraídos tweets de políticos de diversos partidos cuja tendência partidária é conhecida.
-	A extração de características foi feita usando Linguistic Inquiry and Word Count (LIWC), tópicos do Word2Vec (cluster de word2vec), análise de sentimento, anotações linguísticas e entidade nomeadas. Cada um dos sete graus foram avaliados 2 a 2 e os resultados comentados. Os melhores resultados foram obtidos com clusteres word2vec.
+	O trabalho em \cite{Preotiuc-Pietro2017} estudou o engajamento político classificando os textos em graus que variavam entre extrema esquerda até extrema direita. Esse trabalho incluiu a construção de um conjunto de dados onde usuários do Twitter preencheram um relatório de mapeamento do perfil psicológico, sociais e de preferências políticas. Estes dados foram combinados com os 3200 tweets mais recentes por usuário. Ao final do preenchimento, foi pago 3 dólares de forma a garantir a qualidade dos dados. Complementarmente, foram extraídos tweets de políticos de diversos partidos cuja tendência partidária é conhecida.
+	A extração de características foi feita usando Linguistic Inquiry and Word Count (LIWC), tópicos do Word2Vec (composto de clusteres de palavras de word2vec), análise de sentimento, anotações linguísticas e entidade nomeadas. Cada um dos sete graus foram avaliados 2 a 2 e os resultados comentados. Os melhores resultados foram obtidos com clusteres word2vec.
 	
-	%arvix
-	%O trabalho em \cite{Kulkarni2018} analisou a detecção de visão política
+	O trabalho em \cite{Fallis2013} estudou a detecção de tendência política no nível sentença. Foram considerados conjuntos de dados com discursos do congresso americano e livros com conteúdo  conhecidamente ideológico.  O experimento proposto analisou redes neurais recursivas (RecNN) usando inicialização aleatória e inicialização com word2vec. Os resultados foram comparados com métodos de baseline usando regressão logística e  bag-of-words.  Os melhores resultados foram obtidos usando RecNN combinado com Word2Vec. Além disso, foi reportado também que Word2Vec combinado com regressão logística obteve resultado superior ao Bag-of-Words.
+	
+	O trabalho em \cite{Bastos2017} estudou a influência dos {\it bots} no referendo sobre o {\it brexit}. Esses bots apresentavam um comportamento hiperpartidário e atuavam no Facebook, Twitter e em diversos site de notícias. Foi observado que as contas associadas a tais robôs foram excluídas após a votação e mais de 50\% dos links publicados por estes haviam sido removidos ou apontavam para endereços inexistentes. Alguns dos links que permaneceram após as eleições foram associados à notícias claramente classificadas como fake news. Outras questões analisadas foram  a ligação entre a postagem original e os compartilhamentos,  quais as hashtags foram usadas pelo usuário da primeira postagem, quanto tempo entre a postagem e o compartilhamento, e outros.
 	
 	O trabalho em \cite{Bermingham2011} usou análise de sentimento para monitorar as preferências políticas no Twitter e tentar prever o resultado das eleições.
+	
+	O trabalho em \cite{Yano2009} usou modelo de tópicos para prever o tipo dos comentários obtidos por publicações políticas feitas em blogs.
 	
 	O trabalho em \cite{Wang17} compilou um conjunto de dados para detecção de fake news compostos por 12,8 mil textos curtos extraídos do site  \url{WWW.POLITIFACT.COM}. Este site compilou afirmações feitas por políticos norte-americanos em varios de comunicação, como TV, Facebook, Twitter e outros, e abrangendo os tópicos sobre saúde, imigração, educação e outros. Cada registro desse site foi anotado por especialistas com etiquetas variando entre "totalmente falso" a "certamente verdadeiro".
 	
 	O conjunto de dados apresentado foi avaliado com métodos tradicionais e com um método proposto. Os métodos tradicionais considerados foram regressão logistica com regularização L2, SVM e o baseline de classe majoritária. O método proposto avaliou uma combinação da rede neural CNN com Bi-LSTM. Foi utilizado Word Embeddings Google  e meta-dados contendo o tópico, a profissão do autor, o autor, o partido e outros. O método usando apenas rede CNN obteve a melhor acurácia entre os métodos. A utilização do meta-dado contendo o autor do texto combinado com a CNN obteve o melhor resultado geral desse estudo. A rede Bi-LSTM apresentou a pior performance devido ao sobreajuste.
 	
 	
-	O trabalho em \cite{Gencheva2017} estudou métodos para avaliar o nível de confiança de um notícias de modo a priorizar uma verificação de fatos. Foram utilizados artigos de diversos jornais e revistas, bem como classificação feitas por organizações não governamentais. Cada artigo foi classificado no intervalo de 1 a 9 de confiança e extraídos caracteristicas como análise de sentimento, TD-IDF,  Entidade Nomeadas, tempos verbais, word embeddings, análise de tópicos, características linguísticas, metadados contidos no texto e outros. Os embeddings obteve o melhor resultado individual seguido das características linguísticas. O pior resultado foi obtido através de análise de tópicos. 
+	O trabalho em \cite{Gencheva2017} estudou métodos para avaliar o nível de confiança de um notícias de modo a priorizar uma verificação de fatos. Foram utilizados artigos de diversos jornais e revistas, bem como classificação feitas por organizações não governamentais. Cada artigo foi classificado no intervalo de 1 a 9 de confiança e extraídos características como análise de sentimento, TD-IDF,  Entidade Nomeadas, tempos verbais, word embeddings, análise de tópicos, características linguísticas, metadados contidos no texto e outros. Os embeddings obteve o melhor resultado individual seguido das características linguísticas. O pior resultado foi obtido através de análise de tópicos. 
 	
 	O trabalho em \cite{Gilda2018110} analisou fake news em notícias de jornais e blogs  e comparou TF-IDF de bigramas de palavras com gramáticas de livre de contexto probabilísticas (PCFG). Sendo o melhor resultado obtido com TF-IDF.
 	
