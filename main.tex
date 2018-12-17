@@ -1,0 +1,119 @@
+\documentclass{llncs}
+\usepackage[american]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TexStudio Magic comment for language setting (en_GB, en_US ou pt_BR)
+% !TeX spellcheck = pt_BR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+	
+	\title{hyperpartisian dectection}
+	\subtitle{A notebook}
+	
+	\author{Jos\'e Eleandro Cust\'odio
+		\and Caio
+		\and Arthur
+		\and Leonardo
+		\and Rafael Sandroini
+		\and Ivandr\'e Paraboni}
+	\institute{School of Arts, Sciences and Humanities (EACH)\\University of S\~ao Paulo (USP)\\
+		S\~ao Paulo, Brazil\\
+		\{eleandro,ivandre\}@usp.br
+	}
+	
+	\maketitle
+	
+	\begin{abstract}
+		We present an ensemble approach to cross-domain authorship attribution that combines predictions made by three independent classifiers, namely, standard char n-grams, char n-grams with non-diacritic obfuscation and word n-grams. Our proposal relies on variable-length n-gram models and multinomial logistic regression, and selects the prediction of highest probability among the three models as the output for the task. Results generally outperform the PAN-2018 baseline system that makes use of fixed-length char n-grams and linear SVM classification.
+	\end{abstract}
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Introduction}
+	\label{sec.intro}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	O termo {\it Fake News} tornou-se amplamente conhecido após as eleições americanas de 2016 devido a alegações feitas pelo então candidato Donald Trump. Uma das principais alegações é de que diversos meios de comunicação publicam notícias tendenciosas, e algumas vezes falsas, de modo a atrair um número maior de visualizações e consequentemente mais rentabilidade para suas propagandas. Uma característica compartilhada por essas publicações é o nível de polarização política.
+	
+	
+	
+	
+	The rest of this paper is structured as follows. Section \ref{sec.method} describes our main approach. Section \ref{sec.results} presents our results and those provided by the relevant baseline method over the PAN-CLEF-2018 AA dataset. Finally, Section \ref{sec.remarks} discusses these results and suggests future work.
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Related works}
+	\label{sec.related}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	o trabalho em \cite{Preotiuc-Pietro2017} estudou o engajamento político considerando classificando os textos em graus que variavam entre extrema esquerda até extrema direita. Foram coletados dados de usuários do twitter que receberam três dólares pela pesquisa. Estes usuários preencheram um questionário de mapeamento e traços psicológicos e sociais, informaram suas preferencias políticas e forneceram 3200 tweets cada. Além desses, foram extraídos tweets de políticos de diversos partidos cuja tendência partidária é conhecida.
+	A extração de características foi feita usando Linguistic Inquiry and Word Count (LIWC), tópicos do Word2Vec (cluster de word2vec), análise de sentimento, anotações linguísticas e entidade nomeadas. Cada um dos sete graus foram avaliados 2 a 2 e os resultados comentados. Os melhores resultados foram obtidos com clusteres word2vec.
+	
+	%arvix
+	%O trabalho em \cite{Kulkarni2018} analisou a detecção de visão política
+	
+	O trabalho em \cite{Bermingham2011} usou análise de sentimento para monitorar as preferências políticas no Twitter e tentar prever o resultado das eleições.
+	
+	O trabalho em \cite{Wang17} compilou um conjunto de dados para detecção de fake news compostos por 12,8 mil textos curtos extraídos do site  \url{WWW.POLITIFACT.COM}. Este site compilou afirmações feitas por políticos norte-americanos em varios de comunicação, como TV, Facebook, Twitter e outros, e abrangendo os tópicos sobre saúde, imigração, educação e outros. Cada registro desse site foi anotado por especialistas com etiquetas variando entre "totalmente falso" a "certamente verdadeiro".
+	
+	O conjunto de dados apresentado foi avaliado com métodos tradicionais e com um método proposto. Os métodos tradicionais considerados foram regressão logistica com regularização L2, SVM e o baseline de classe majoritária. O método proposto avaliou uma combinação da rede neural CNN com Bi-LSTM. Foi utilizado Word Embeddings Google  e meta-dados contendo o tópico, a profissão do autor, o autor, o partido e outros. O método usando apenas rede CNN obteve a melhor acurácia entre os métodos. A utilização do meta-dado contendo o autor do texto combinado com a CNN obteve o melhor resultado geral desse estudo. A rede Bi-LSTM apresentou a pior performance devido ao sobreajuste.
+	
+	
+	O trabalho em \cite{Gencheva2017} estudou métodos para avaliar o nível de confiança de um notícias de modo a priorizar uma verificação de fatos. Foram utilizados artigos de diversos jornais e revistas, bem como classificação feitas por organizações não governamentais. Cada artigo foi classificado no intervalo de 1 a 9 de confiança e extraídos caracteristicas como análise de sentimento, TD-IDF,  Entidade Nomeadas, tempos verbais, word embeddings, análise de tópicos, características linguísticas, metadados contidos no texto e outros. Os embeddings obteve o melhor resultado individual seguido das características linguísticas. O pior resultado foi obtido através de análise de tópicos. 
+	
+	O trabalho em \cite{Gilda2018110} analisou fake news em notícias de jornais e blogs  e comparou TF-IDF de bigramas de palavras com gramáticas de livre de contexto probabilísticas (PCFG). Sendo o melhor resultado obtido com TF-IDF.
+	
+	O trabalho em \cite{Sharonova201811} utilizou extração de entidades nomeadas e de fatos e suas relações para detecção de
+	
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Method}
+	\label{sec.method}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Results}
+	\label{sec.results}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Final remarks}
+	\label{sec.remarks}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent{\bf Acknowledgements}. The second author received support by FAPESP grant nro. \mbox{2016/14223-0}.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\bibliographystyle{splncs04}
+	\begin{raggedright}
+		\bibliography{hyperpartisian}
+	\end{raggedright}
+	
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

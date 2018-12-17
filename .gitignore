@@ -1,0 +1,15 @@
+*.aux
+*.idx
+*.log
+*.toc
+*.lot
+*.loa
+*.lof
+*.loq
+*.bbl
+*.blg
+*.brf
+.DS_STORE
+*.synctex.gz
+*.txss
+00_main.pdf
